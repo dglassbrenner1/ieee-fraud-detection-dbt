@@ -1,0 +1,5 @@
+TRANSACTIONID,ID_01,ID_02,ID_03,DEVICETYPE,DEVICEINFO
+100000001,abc123,xyz789,foo456,mobile,Apple iPhone 13
+100000002,def456,uvw123,bar789,desktop,Dell Laptop
+100000003,ghi789,rst456,baz012,mobile,Samsung Galaxy S21
+

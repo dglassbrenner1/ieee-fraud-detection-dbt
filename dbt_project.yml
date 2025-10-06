@@ -30,3 +30,30 @@ models:
     staging:
       +database: IEEE_FRAUD_DETECTION
       +schema: staging
+
+seeds:
+  my_dbt_project:
+    sample_train_identity:
+      +column_types:
+        TRANSACTIONID: integer
+        ID_01: varchar(255)
+        ID_02: varchar(255)
+        ID_03: varchar(255)
+        DEVICETYPE: varchar(100)
+        DEVICEINFO: varchar(255)
+    sample_train_transaction:
+      +column_types:
+        TRANSACTIONID: integer
+        ISFRAUD: integer
+        TRANSACTIONDT: integer
+        TRANSACTIONAMT: float
+        PRODUCTCD: varchar(50)
+        CARD1: integer
+        CARD2: integer
+        CARD3: integer
+        CARD4: varchar(50)
+        CARD5: integer
+        CARD6: varchar(50)
+        ADDR1: integer
+        ADDR2: integer
+

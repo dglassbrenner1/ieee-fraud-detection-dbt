@@ -1,0 +1,18 @@
+version: 2
+
+seeds:
+  - name: sample_train_transaction
+    description: |
+      Sample transaction data used as seed for testing and development.
+    columns:
+      - name: TRANSACTIONID
+        description: Unique transaction identifier
+        tests:
+          - unique
+          - not_null
+      - name: TRANSACTIONAMT
+        description: Transaction amount in USD
+        tests:
+          - not_null
+      - name: ISFRAUD
+        description: Flag indicating suspected fraud (0 = no, 1 = yes)
