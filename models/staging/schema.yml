@@ -1,0 +1,413 @@
+version: 2
+
+models:
+  - name: stg_train_transaction
+    description: "Staging model for transaction-level features from the IEEE-CIS dataset; prepares raw columns for downstream feature engineering and modeling."
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for each transaction (primary key)"
+        tests:
+          - not_null
+          - unique
+      - name: is_fraud
+        description: "Target variable indicating fraudulent transaction (1) or not (0)"
+      - name: transaction_dt
+        description: "Transaction timestamp as an integer; convert to TIMESTAMP downstream"
+        tests:
+          - not_null
+      - name: transaction_amt
+        description: "Amount of the transaction"
+        tests:
+          - not_null
+      - name: product_cd
+        description: "Product code/category"
+      - name: card1
+        description: "Card information part 1"
+      - name: card2
+        description: "Card information part 2"
+      - name: card3
+        description: "Card information part 3"
+      - name: card4
+        description: "Card type string (e.g. visa, mastercard)"
+      - name: card5
+        description: "Card information part 5"
+      - name: card6
+        description: "Card information part 6"
+      - name: addr1
+        description: "Billing address part 1"
+      - name: addr2
+        description: "Billing address part 2"
+      - name: dist1
+        description: "Distance feature 1"
+      - name: dist2
+        description: "Distance feature 2"
+      - name: p_emaildomain
+        description: "Purchaser email domain"
+      - name: r_emaildomain
+        description: "Recipient email domain"
+      - name: c1
+        description: "Masked counting feature 1"
+      - name: c2
+        description: "Masked counting feature 2"
+      - name: c3
+        description: "Masked counting feature 3"
+      - name: c4
+        description: "Masked counting feature 4"
+      - name: c5
+        description: "Masked counting feature 5"
+      - name: c6
+        description: "Masked counting feature 6"
+      - name: c7
+        description: "Masked counting feature 7"
+      - name: c8
+        description: "Masked counting feature 8"
+      - name: c9
+        description: "Masked counting feature 9"
+      - name: c10
+        description: "Masked counting feature 10"
+      - name: c11
+        description: "Masked counting feature 11"
+      - name: c12
+        description: "Masked counting feature 12"
+      - name: c13
+        description: "Masked counting feature 13"
+      - name: c14
+        description: "Masked counting feature 14"
+      - name: d1
+        description: "Timedelta feature 1"
+      - name: d2
+        description: "Timedelta feature 2"
+      - name: d3
+        description: "Timedelta feature 3"
+      - name: d4
+        description: "Timedelta feature 4"
+      - name: d5
+        description: "Timedelta feature 5"
+      - name: d6
+        description: "Timedelta feature 6"
+      - name: d7
+        description: "Timedelta feature 7"
+      - name: d8
+        description: "Timedelta feature 8"
+      - name: d9
+        description: "Timedelta feature 9"
+      - name: d10
+        description: "Timedelta feature 10"
+      - name: d11
+        description: "Timedelta feature 11"
+      - name: d12
+        description: "Timedelta feature 12"
+      - name: d13
+        description: "Timedelta feature 13"
+      - name: d14
+        description: "Timedelta feature 14"
+      - name: d15
+        description: "Timedelta feature 15"
+      - name: m1
+        description: "Match feature 1"
+      - name: m2
+        description: "Match feature 2"
+      - name: m3
+        description: "Match feature 3"
+      - name: m4
+        description: "Match feature 4"
+      - name: m5
+        description: "Match feature 5"
+      - name: m6
+        description: "Match feature 6"
+      - name: m7
+        description: "Match feature 7"
+      - name: m8
+        description: "Match feature 8"
+      - name: m9
+        description: "Match feature 9"
+      - name: v1
+        description: "Vesta engineered rich feature 1"
+      - name: v2
+        description: "Vesta engineered rich feature 2"
+      - name: v3
+        description: "Vesta engineered rich feature 3"
+      - name: v4
+        description: "Vesta engineered rich feature 4"
+      - name: v5
+        description: "Vesta engineered rich feature 5"
+      - name: v6
+        description: "Vesta engineered rich feature 6"
+      - name: v7
+        description: "Vesta engineered rich feature 7"
+      - name: v8
+        description: "Vesta engineered rich feature 8"
+      - name: v9
+        description: "Vesta engineered rich feature 9"
+      - name: v10
+        description: "Vesta engineered rich feature 10"
+      - name: v11
+        description: "Vesta engineered rich feature 11"
+      - name: v12
+        description: "Vesta engineered rich feature 12"
+      - name: v13
+        description: "Vesta engineered rich feature 13"
+      - name: v14
+        description: "Vesta engineered rich feature 14"
+      - name: v15
+        description: "Vesta engineered rich feature 15"
+      - name: v16
+        description: "Vesta engineered rich feature 16"
+      - name: v17
+        description: "Vesta engineered rich feature 17"
+      - name: v18
+        description: "Vesta engineered rich feature 18"
+      - name: v19
+        description: "Vesta engineered rich feature 19"
+      - name: v20
+        description: "Vesta engineered rich feature 20"
+      - name: v21
+        description: "Vesta engineered rich feature 21"
+      - name: v22
+        description: "Vesta engineered rich feature 22"
+      - name: v23
+        description: "Vesta engineered rich feature 23"
+      - name: v24
+        description: "Vesta engineered rich feature 24"
+      - name: v25
+        description: "Vesta engineered rich feature 25"
+      - name: v26
+        description: "Vesta engineered rich feature 26"
+      - name: v27
+        description: "Vesta engineered rich feature 27"
+      - name: v28
+        description: "Vesta engineered rich feature 28"
+      - name: v29
+        description: "Vesta engineered rich feature 29"
+      - name: v30
+        description: "Vesta engineered rich feature 30"
+      - name: v31
+        description: "Vesta engineered rich feature 31"
+      - name: v32
+        description: "Vesta engineered rich feature 32"
+      - name: v33
+        description: "Vesta engineered rich feature 33"
+      - name: v34
+        description: "Vesta engineered rich feature 34"
+      - name: v35
+        description: "Vesta engineered rich feature 35"
+      - name: v36
+        description: "Vesta engineered rich feature 36"
+      - name: v37
+        description: "Vesta engineered rich feature 37"
+      - name: v38
+        description: "Vesta engineered rich feature 38"
+      - name: v39
+        description: "Vesta engineered rich feature 39"
+      - name: v40
+        description: "Vesta engineered rich feature 40"
+      - name: v41
+        description: "Vesta engineered rich feature 41"
+      - name: v42
+        description: "Vesta engineered rich feature 42"
+      - name: v43
+        description: "Vesta engineered rich feature 43"
+      - name: v44
+        description: "Vesta engineered rich feature 44"
+      - name: v45
+        description: "Vesta engineered rich feature 45"
+      - name: v46
+        description: "Vesta engineered rich feature 46"
+      - name: v47
+        description: "Vesta engineered rich feature 47"
+      - name: v48
+        description: "Vesta engineered rich feature 48"
+      - name: v49
+        description: "Vesta engineered rich feature 49"
+      - name: v50
+        description: "Vesta engineered rich feature 50"
+      - name: v51
+        description: "Vesta engineered rich feature 51"
+      - name: v52
+        description: "Vesta engineered rich feature 52"
+      - name: v53
+        description: "Vesta engineered rich feature 53"
+      - name: v54
+        description: "Vesta engineered rich feature 54"
+      - name: v55
+        description: "Vesta engineered rich feature 55"
+      - name: v56
+        description: "Vesta engineered rich feature 56"
+      - name: v57
+        description: "Vesta engineered rich feature 57"
+      - name: v58
+        description: "Vesta engineered rich feature 58"
+      - name: v59
+        description: "Vesta engineered rich feature 59"
+      - name: v60
+        description: "Vesta engineered rich feature 60"
+      - name: v61
+        description: "Vesta engineered rich feature 61"
+      - name: v62
+        description: "Vesta engineered rich feature 62"
+      - name: v63
+        description: "Vesta engineered rich feature 63"
+      - name: v64
+        description: "Vesta engineered rich feature 64"
+      - name: v65
+        description: "Vesta engineered rich feature 65"
+      - name: v66
+        description: "Vesta engineered rich feature 66"
+      - name: v67
+        description: "Vesta engineered rich feature 67"
+      - name: v68
+        description: "Vesta engineered rich feature 68"
+      - name: v69
+        description: "Vesta engineered rich feature 69"
+      - name: v70
+        description: "Vesta engineered rich feature 70"
+      - name: v71
+        description: "Vesta engineered rich feature 71"
+      - name: v72
+        description: "Vesta engineered rich feature 72"
+      - name: v73
+        description: "Vesta engineered rich feature 73"
+      - name: v74
+        description: "Vesta engineered rich feature 74"
+      - name: v75
+        description: "Vesta engineered rich feature 75"
+      - name: v76
+        description: "Vesta engineered rich feature 76"
+      - name: v77
+        description: "Vesta engineered rich feature 77"
+      - name: v78
+        description: "Vesta engineered rich feature 78"
+      - name: v79
+        description: "Vesta engineered rich feature 79"
+      - name: v80
+        description: "Vesta engineered rich feature 80"
+      - name: v81
+        description: "Vesta engineered rich feature 81"
+      - name: v82
+        description: "Vesta engineered rich feature 82"
+      - name: v83
+        description: "Vesta engineered rich feature 83"
+      - name: v84
+        description: "Vesta engineered rich feature 84"
+      - name: v85
+        description: "Vesta engineered rich feature 85"
+      - name: v86
+        description: "Vesta engineered rich feature 86"
+      - name: v87
+        description: "Vesta engineered rich feature 87"
+      - name: v88
+        description: "Vesta engineered rich feature 88"
+      - name: v89
+        description: "Vesta engineered rich feature 89"
+      - name: v90
+        description: "Vesta engineered rich feature 90"
+      - name: v91
+        description: "Vesta engineered rich feature 91"
+      - name: v92
+        description: "Vesta engineered rich feature 92"
+      - name: v93
+        description: "Vesta engineered rich feature 93"
+      - name: v94
+        description: "Vesta engineered rich feature 94"
+      - name: v95
+        description: "Vesta engineered rich feature 95"
+      - name: v96
+        description: "Vesta engineered rich feature 96"
+      - name: v97
+        description: "Vesta engineered rich feature 97"
+      - name: v98
+        description: "Vesta engineered rich feature 98"
+      - name: v99
+        description: "Vesta engineered rich feature 99"
+      - name: v100
+        description: "Vesta engineered rich feature 100"
+      # Continue pattern through v339 similarly
+
+  - name: stg_train_identity
+    description: "Staging model for identity-level features from the IEEE-CIS dataset"
+    columns:
+      - name: transaction_id
+        description: "Reference to transaction_id in transaction model"
+        tests:
+          - not_null
+          - unique
+      - name: id_01
+        description: "Identity feature 01"
+      - name: id_02
+        description: "Identity feature 02"
+      - name: id_03
+        description: "Identity feature 03"
+      - name: id_04
+        description: "Identity feature 04"
+      - name: id_05
+        description: "Identity feature 05"
+      - name: id_06
+        description: "Identity feature 06"
+      - name: id_07
+        description: "Identity feature 07"
+      - name: id_08
+        description: "Identity feature 08"
+      - name: id_09
+        description: "Identity feature 09"
+      - name: id_10
+        description: "Identity feature 10"
+      - name: id_11
+        description: "Identity feature 11"
+      - name: id_12
+        description: "Identity feature 12"
+      - name: id_13
+        description: "Identity feature 13"
+      - name: id_14
+        description: "Identity feature 14"
+      - name: id_15
+        description: "Identity feature 15"
+      - name: id_16
+        description: "Identity feature 16"
+      - name: id_17
+        description: "Identity feature 17"
+      - name: id_18
+        description: "Identity feature 18"
+      - name: id_19
+        description: "Identity feature 19"
+      - name: id_20
+        description: "Identity feature 20"
+      - name: id_21
+        description: "Identity feature 21"
+      - name: id_22
+        description: "Identity feature 22"
+      - name: id_23
+        description: "Identity feature 23"
+      - name: id_24
+        description: "Identity feature 24"
+      - name: id_25
+        description: "Identity feature 25"
+      - name: id_26
+        description: "Identity feature 26"
+      - name: id_27
+        description: "Identity feature 27"
+      - name: id_28
+        description: "Identity feature 28"
+      - name: id_29
+        description: "Identity feature 29"
+      - name: id_30
+        description: "Identity feature 30"
+      - name: id_31
+        description: "Identity feature 31"
+      - name: id_32
+        description: "Identity feature 32"
+      - name: id_33
+        description: "Identity feature 33"
+      - name: id_34
+        description: "Identity feature 34"
+      - name: id_35
+        description: "Identity feature 35"
+      - name: id_36
+        description: "Identity feature 36"
+      - name: id_37
+        description: "Identity feature 37"
+      - name: id_38
+        description: "Identity feature 38"
+      - name: device_type
+        description: "Device type classification (mobile, desktop etc.)"
+      - name: device_info
+        description: "Device information (OS, browser, model etc.)"

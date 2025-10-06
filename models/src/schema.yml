@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data tables containing original transaction and identity information from the IEEE Fraud Detection dataset."
+    schema: RAW
+    database: IEEE_FRAUD_DETECTION
+    tables:
+      - name: TRAIN_TRANSACTION
+        description: "Raw transaction records including purchase details and amounts."
+      - name: TRAIN_IDENTITY
+        description: "Raw identity records with customer identity attributes for fraud analysis."
