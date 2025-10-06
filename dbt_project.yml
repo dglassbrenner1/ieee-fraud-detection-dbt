@@ -1,7 +1,9 @@
+config-version: 2
 
 # dbt project configuration file for evolving IEEE Fraud Detection analytics
 # Defines project metadata, directory structure, and model configurations
 # See https://docs.getdbt.com/reference/dbt_project.yml for details
+
 name: 'my_dbt_project'
 version: '1.0.0'
 
